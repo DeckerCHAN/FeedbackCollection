@@ -1,0 +1,35 @@
+group 'com.deckerchan'
+version '0.0.0.1'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.8.0'
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+
+    // https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver
+    compile group: 'org.mongodb', name: 'mongo-java-driver', version: '3.4.0'
+
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
+
+    // https://mvnrepository.com/artifact/commons-lang/commons-lang
+    compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
+
+
+
+}
+
+war {
+    from 'src/main/webapp' // adds a file-set to the root of the archive
+    webXml = file('src/main/webapp/WEB_INF/web.xml') // copies a file to WEB-INF/web.xml
+}
